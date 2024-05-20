@@ -1,0 +1,10 @@
+thread6
+importlib == 1.0.4
+queuelib == 1.6.2
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch == 1.10.1
+torchvision == 0.11.2
+numpy == 1.24.3
+matplotlib == 3.7.1
+scipy == 1.9.3
+scikit-learn == 1.2.0

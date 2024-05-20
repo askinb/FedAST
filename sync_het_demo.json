@@ -1,0 +1,168 @@
+{
+  "num_of_threads": 20,
+  "clients": {
+    "total": 1000,
+    "do_test": false,
+    "test_partition": 0.2,
+    "slow_ratio": 0.25,
+    "normal_ratio": 0.5,
+    "fast_ratio": 0.25
+  },
+  "algo": "sync",
+  "partialNbofClients": 300,
+  "max_time": 2000000,
+  "wandb": false,
+  "wandb_runname": "Sync-ST_heterogeneous",
+  "wandb_project_name": "FedAST_Demo1",
+  "paths": {
+    "data": "./data",
+    "model": "./models"
+  },
+  "server": "basic",
+  "models": {
+    "model1": {
+      "rounds": 20000,
+      "target_accuracy": 0.93,
+      "name": "MNIST",
+      "model_path": "./models",
+      "data_path": "./data",
+      "model_device": "cuda",
+      "batch_size": 32,
+      "test_batch_size": 400,
+      "local_iter": 3,
+      "epochs": 3,
+      "firstC": 30,
+      "round_to_test": 1,
+      "local_lr": 0.2,
+      "global_lr": 1,
+      "weight_decay": 0.0003,
+      "local_momentum": 0,
+      "nb_of_active_works": 100,
+      "delay": {
+        "name": "shiftedExp",
+        "exp_mean": 0.148,
+        "shift": 0.074,
+        "local_multi": 27
+      },
+      "data": {
+        "loading": "static",
+        "testset_device": "cuda",
+        "trainset_device": "cuda",
+        "data_seed": 10,
+        "partition": {
+          "size": 300
+        },
+        "IID": false,
+        "dirichlet": {
+          "alpha": 0.1
+        }
+      }
+    },
+    "model2": {
+      "rounds": 200000,
+      "target_accuracy": 0.82,
+      "name": "FashionMNIST",
+      "model_path": "./models",
+      "data_path": "./data",
+      "model_device": "cuda",
+      "batch_size": 32,
+      "test_batch_size": 400,
+      "local_iter": 3,
+      "epochs": 3,
+      "firstC": 30,
+      "round_to_test": 1,
+      "local_lr": 0.06,
+      "global_lr": 1,
+      "weight_decay": 0.0003,
+      "local_momentum": 0,
+      "nb_of_active_works": 84,
+      "delay": {
+        "name": "shiftedExp",
+        "exp_mean": 0.24,
+        "shift": 0.12,
+        "local_multi": 27
+      },
+      "data": {
+        "loading": "static",
+        "testset_device": "cuda",
+        "trainset_device": "cuda",
+        "data_seed": 10,
+        "partition": {
+          "size": 300
+        },
+        "IID": false,
+        "dirichlet": {
+          "alpha": 0.1
+        }
+      }
+    },
+    "model3": {
+      "rounds": 200000,
+      "target_accuracy": 0.63,
+      "name": "CIFAR-10",
+      "model_path": "./models",
+      "data_path": "./data",
+      "model_device": "cuda",
+      "batch_size": 32,
+      "test_batch_size": 400,
+      "local_iter": 3,
+      "epochs": 3,
+      "firstC": 30,
+      "round_to_test": 1,
+      "local_lr": 0.1,
+      "global_lr": 1,
+      "weight_decay": 0.0003,
+      "local_momentum": 0,
+      "nb_of_active_works": 47,
+      "delay": {
+        "name": "shiftedExp",
+        "exp_mean": 0.228,
+        "shift": 0.114,
+        "local_multi": 27
+      },
+      "data": {
+        "loading": "static",
+        "testset_device": "cuda",
+        "trainset_device": "cuda",
+        "data_seed": 10,
+        "partition": {
+          "size": 300
+        },
+        "IID": false,
+        "dirichlet": {
+          "alpha": 0.1
+        }
+      }
+    },
+    "model4": {
+      "rounds": 20000,
+      "target_accuracy": 0.42,
+      "name": "Shakespeare",
+      "model_path": "./models",
+      "data_path": "./leaf/data/shakespeare/data",
+      "model_device": "cuda",
+      "batch_size": 64,
+      "test_batch_size": 200,
+      "local_iter": 27,
+      "firstC": 30,
+      "round_to_test": 1,
+      "local_lr": 7,
+      "global_lr": 1,
+      "weight_decay": 1e-05,
+      "local_momentum": 0,
+      "nb_of_active_works": 67,
+      "delay": {
+        "name": "shiftedExp",
+        "exp_mean": 0.555,
+        "shift": 0.2775,
+        "local_multi": 27
+      },
+      "data": {
+        "testset_device": "cuda",
+        "trainset_device": "cuda",
+        "data_seed": 10,
+        "leaf": true
+      }
+    }
+  }
+}
